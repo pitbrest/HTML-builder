@@ -11,6 +11,14 @@ const fs = require('fs');
 //   console.log(data);
 // });
 
+// Второй рабочий вариант 
+
+// const adress = path.join(__dirname, 'text.txt');
+// const stream = new fs.ReadStream(adress, {encoding: 'utf-8'});
+
+// stream.on('data', (chunk) => console.log(chunk));
+
+
 const adress = path.join(__dirname, 'text.txt');
 const stream = new fs.ReadStream(adress, {encoding: 'utf-8'});
 
