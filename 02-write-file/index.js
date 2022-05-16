@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-let stream = require('node:stream');
+const adress = path.join(__dirname, 'text.txt');
 
 console.log('Привет дорогой друг !!!');
 
@@ -10,25 +10,22 @@ const readline = require('readline')
     output: process.stdout
   });
 
-readline.question('Введите Ваше сообщение', text => {
-
- 
-  // eslint-disable-next-line no-const-assign
-  stream = new fs.ReadStream(text, {encoding: 'utf-8'});
+readline.question('Введите Ваше сообщение', text => {  
   
-  stream.on('readable', (chunk) => {
-    let textFileAdress = path.join(__dirname, 'text.txt');
-    
-    fs.writeFile(textFileAdress, chunk, 'utf8', (err) => {
+  const stream = new fs.ReadStream(text, {encoding: 'utf-8'});
+
+  stream.on('data', () => {      
+    let data = stream.read();
+    fs.writeFile(adress, data, 'utf8', (err) => {
       if(err || text.length === 0) {
         throw new Error('Введите тест пожалуйста :)');
       }
     });			
   });
   
-  stream.on('end', () => {   
-    console.log('Прощай дорогой друг. До скорой встречи !!!');
-  }); 
+  // stream.on('end', () => {   
+  //   console.log('Прощай дорогой друг. До скорой встречи !!!');
+  // }); 
  
 });
 
