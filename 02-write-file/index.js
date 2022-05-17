@@ -1,23 +1,24 @@
-// Работает но записывает только 1 сообщение
-
 const path = require('path');
 const fs = require('fs');
 const process = require('process');
+const adress = path.join(__dirname, 'text.txt');
 
-console.log('Привет дорогой друг !!!');
+const readline = require('readline');
+const { stdin: input, stdout: output } = require('process');
 
-const readline = require('readline')
-  .createInterface({
-    input: process.stdin,
-    output: process.stdout
-  });
+const rl = readline.createInterface({ input, output });
 
-readline.question('Введите Ваше сообщение', text => {
-  const adress = path.join(__dirname, 'text.txt');
+console.log('Hi all, nice to meet you !!!');
 
-  fs.writeFile(adress, text, () => {}); 
+rl.question('Type youre message, please\n', (answer) => {
+  // TODO: Log the answer in a database  
+  fs.writeFile(adress, answer, () => { });
 });
-
+rl.on('line', (input) => {
+  fs.appendFile(adress, '\n' + input, () => { });
+});
 process.on('beforeExit', () => {
-  console.log('Прощай дорогой друг, до скорой встречи !');
+  console.log('Good by my friend, see you later.');
 });
+
+
