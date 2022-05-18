@@ -11,7 +11,7 @@ const rl = readline.createInterface({ input, output });
 
 console.log('Hi all, nice to meet you !!!');
 
-rl.question('Type youre message, please\n', (answer) => { 
+rl.question('Type youre message here, please ...\n', (answer) => {
   fs.writeFile(adress, answer, () => { });
 });
 rl.on('line', (input) => {
@@ -20,3 +20,4 @@ rl.on('line', (input) => {
 process.on('beforeExit', () => {
   console.log('Good by my friend, see you later.');
 });
+
