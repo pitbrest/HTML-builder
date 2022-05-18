@@ -10,8 +10,7 @@ const rl = readline.createInterface({ input, output });
 
 console.log('Hi all, nice to meet you !!!');
 
-rl.question('Type youre message, please\n', (answer) => {
-  // TODO: Log the answer in a database  
+rl.question('Type youre message here, please ...\n', (answer) => {
   fs.writeFile(adress, answer, () => { });
 });
 rl.on('line', (input) => {
