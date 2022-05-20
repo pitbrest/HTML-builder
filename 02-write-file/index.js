@@ -12,12 +12,19 @@ const rl = readline.createInterface({ input, output });
 console.log('Hi all, nice to meet you !!!');
 
 rl.question('Type youre message here, please ...\n', (answer) => {
-  fs.writeFile(adress, answer, () => { });
+	if (answer === 'exit') {
+		console.log('Good by my friend, see you later');
+		process.exit();
+	}
+	fs.writeFile(adress, answer, () => { });
 });
 rl.on('line', (input) => {
-  fs.appendFile(adress, '\n' + input, () => { });
+	if (input === 'exit') {
+		console.log('Good by my friend, see you later');
+		process.exit();
+	}
+	fs.appendFile(adress, '\n' + input, () => { });
 });
 process.on('beforeExit', () => {
-  console.log('Good by my friend, see you later.');
+	console.log('Good by my friend, see you later');
 });
-
