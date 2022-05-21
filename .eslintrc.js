@@ -10,8 +10,8 @@ module.exports = {
   },
   'rules': {
     'indent': [
-      'error',
-      2
+      'off',
+      4
     ],
     'quotes': [
       'error',
