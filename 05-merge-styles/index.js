@@ -1,5 +1,4 @@
 const path = require('path');
-const fs = require('fs');
 const fsPromises = require('fs/promises');
 
 const stylesAdress = path.join(__dirname, 'styles');
@@ -27,23 +26,3 @@ let mergeFunc = async () => {
 mergeFunc();
 
 
-// fs.readdir(adress, (error, files) => {
-// 	if (error) {
-// 		throw new Error('Have some error with fs.readdir');
-// 	} else {
-// 		files.forEach(file => {
-// 			let fileAdress = path.join(adress, file);
-// 			fs.stat(fileAdress, (err, stats) => {
-// 				if (stats.isFile() && path.parse(fileAdress).ext.slice(1) === 'css') {
-// 					fs.readFile(fileAdress, 'utf-8', function (err, data) {
-// 						arr.push(data);
-// 					});
-// 				}
-// 			});
-// 		});
-// 	}
-// 	console.log(arr);
-// 	let result = arr.join('');
-// 	let destFileAdress = path.join(__dirname, 'project-dist/bundle.css');
-// 	fs.writeFile(destFileAdress, result, () => { });
-// });

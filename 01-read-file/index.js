@@ -1,24 +1,6 @@
 const path = require('path');
 const fs = require('fs');
 
-// Рабочий вариант
-
-// fs.readFile('01-READ-FILE/text.txt', 'utf-8', (error, data) => {
-//   console.log('Асинхронное чтение');
-//   if(error) {
-//     throw error;
-//   }
-//   console.log(data);
-// });
-
-// Второй рабочий вариант 
-
-// const adress = path.join(__dirname, 'text.txt');
-// const stream = new fs.ReadStream(adress, {encoding: 'utf-8'});
-
-// stream.on('data', (chunk) => console.log(chunk));
-
-
 const adress = path.join(__dirname, 'text.txt');
 const stream = new fs.ReadStream(adress, {encoding: 'utf-8'});
 

@@ -14,7 +14,7 @@ fs.writeFile(adress, '', () => { });
 
 rl.question('Type youre message here, please ...\n', (answer) => {
 	if (answer === 'exit') {
-		console.log('Good by my friend, see you later');
+		console.log('Good by my friend, see you later...');
 		process.exit();
 	}
 	fs.writeFile(adress, answer, () => { });
@@ -27,5 +27,5 @@ rl.on('line', (input) => {
 	fs.appendFile(adress, '\n' + input, () => { });
 });
 process.on('beforeExit', () => {
-	console.log('Good by my friend, see you later');
+	console.log('Good by my friend, see you later...');
 });
