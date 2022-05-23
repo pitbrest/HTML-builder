@@ -35,8 +35,7 @@ fs.readdir(source, (err, files) => {
 				throw new Error('Have some error with fs.copyFile');
 			}
 		});
-	});
-	
+	});	
 });
 
 
