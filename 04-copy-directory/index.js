@@ -9,14 +9,14 @@ fs.readdir(adress, (error, files) => {
 			if (err) {
 				throw new Error('Have some error with fs.mkdir');
 			}
-		})
+		});
 	}
 	else {
 		files.forEach(file => {
 			fs.unlink(path.join(adress, file), (err) => {
 				if (err) {
 					throw new Error('Have some error with fs.unlink');
-				};
+				}
 			});
 		});
 	}
@@ -36,6 +36,7 @@ fs.readdir(source, (err, files) => {
 			}
 		});
 	});
+	
 });
 
 
