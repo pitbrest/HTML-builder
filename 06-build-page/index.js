@@ -1,5 +1,4 @@
 const path = require('path');
-const fs = require('fs');
 const fsPromises = require('fs/promises');
 
 const projectFolderAdress = path.join(__dirname, 'project-dist');
@@ -76,13 +75,13 @@ const pastComponents = async () => {
 	}
 
 	createFile(newHtmlPath, template);
-}
+};
 
 const createPage = async () => {
 	createFolder(projectFolderAdress);
 	mergeCss();
 	copyDir(assetsPath, newAssetsPath);
 	pastComponents();
-}
+};
 
 createPage();
